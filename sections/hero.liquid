@@ -4,12 +4,16 @@
   <p>{{ section.settings.description }}</p>
 
   <p>
-      {{shop.name }} {{shop.email}} {{shop.currency}}
+      Shop name: {{shop.name }} <br/>
+      Currency: {{shop.currency}}
   </p>
 
   <button>
     {{ section.settings.button_text }}
   </button>
+
+  <div id="counter-app"></div>
+  {% render 'vite-tag', entry: 'counter.ts' %}
 </section>
 
 {% schema %}

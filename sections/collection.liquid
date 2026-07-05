@@ -7,6 +7,8 @@
 
 <h1>{{ collection.title }}</h1>
 
+<p>{{ collection.products | size }} products</p>
+
 <div class="collection-products">
   {% paginate collection.products by 20 %}
     {% for product in collection.products %}

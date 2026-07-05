@@ -1,0 +1,33 @@
+{
+  "name": "shopify-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev:vite": "vite",
+    "dev:shopify": "shopify theme dev --store=andrronov.myshopify.com",
+    "dev": "concurrently -n vite,shopify -c blue,green \"pnpm dev:vite\" \"pnpm dev:shopify\"",
+    "clean:vite": "rimraf 'assets/theme-*.js' 'assets/theme-*.css' 'assets/theme-*.js.map'",
+    "build": "pnpm clean:vite && vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.13.1",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.2",
+    "rimraf": "^6.1.3",
+    "tailwindcss": "^4.3.2",
+    "vite-plugin-shopify": "^4.1.2",
+    "vue": "^3.5.39"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.7",
+    "@vue/tsconfig": "^0.9.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.1.3",
+    "vue-tsc": "^3.3.6"
+  }
+}
