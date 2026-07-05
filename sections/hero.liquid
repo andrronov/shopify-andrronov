@@ -1,0 +1,45 @@
+<section class="hero" style="background-color: {{ section.settings.background }}">
+  <h1>{{ section.settings.title }}</h1>
+
+  <p>{{ section.settings.description }}</p>
+
+  <p>
+      {{shop.name }} {{shop.email}} {{shop.currency}}
+  </p>
+
+  <button>
+    {{ section.settings.button_text }}
+  </button>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Flipper Zero"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "The Multi-tool Device for Geeks"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Buy now"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ]
+}
+{% endschema %}
