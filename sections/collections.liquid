@@ -37,7 +37,10 @@
 {% stylesheet %}
   .collections {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(var(--collection-card-size), 100%), 1fr));
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(min(var(--collection-card-size), 100%), 1fr)
+    );
     gap: var(--grid-gap);
   }
   .collections--compact {

@@ -5,12 +5,16 @@
 
     {% unless settings.type_primary_font.system? %}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-      {{ settings.type_primary_font | font_url | preload_tag: as: 'font', crossorigin: 'anonymous' }}
+      {{
+        settings.type_primary_font
+        | font_url
+        | preload_tag: as: 'font', crossorigin: 'anonymous'
+      }}
     {% endunless %}
 
     {% liquid
-        render 'vite-tag', entry: 'theme.css'
-        render 'vite-tag', entry: 'theme.ts'
+      render 'vite-tag', entry: 'theme.css'
+      render 'vite-tag', entry: 'theme.ts'
     %}
 
     {% render 'meta-tags' %}

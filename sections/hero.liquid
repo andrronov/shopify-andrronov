@@ -1,16 +1,34 @@
-<section class="hero" style="background-color: {{ section.settings.background }}">
+{% assign names = 'Andrew,Top,Anton,Gandon,Pidor' | split: ',' %}
+
+<section
+  class="hero"
+  style="background-color: {{ section.settings.background }}"
+>
   <h1>{{ section.settings.title }}</h1>
 
   <p>{{ section.settings.description }}</p>
 
   <p>
-      Shop name: {{shop.name }} <br/>
-      Currency: {{shop.currency}}
+    Shop name: {{ shop.name }}
+    <br /> Currency: {{ shop.currency }}
   </p>
 
   <button>
     {{ section.settings.button_text }}
   </button>
+
+  <div>
+    {% assign test = 'test' %}
+    Hello, {{ test | upcase }}
+  </div>
+
+  <ul>
+    {% for name in names %}
+      {% if name.size > 5 %}
+        <li>{{ name }}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
 
   <div id="counter-app"></div>
   {% render 'vite-tag', entry: 'counter.ts' %}
