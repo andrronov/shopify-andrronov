@@ -109,6 +109,27 @@
         "id": "gradient_background_2",
         "type": "color_background",
         "label": "t:settings_schema.colors.settings.gradient_background_2.label"
+      },
+      {
+        "type": "color",
+        "id": "colors_badge_bestseller",
+        "default": "#FFD700",
+        "label": "t:settings_schema.colors.settings.colors_badge_bestseller.label",
+        "info": "t:settings_schema.colors.settings.colors_badge_bestseller.info"
+      },
+      {
+        "type": "color",
+        "id": "colors_badge_sale",
+        "default": "#FFD700",
+        "label": "t:settings_schema.colors.settings.colors_badge_sale.label",
+        "info": "t:settings_schema.colors.settings.colors_badge_sale.info"
+      },
+      {
+        "type": "color",
+        "id": "colors_badge_new",
+        "default": "#FFD700",
+        "label": "t:settings_schema.colors.settings.colors_badge_new.label",
+        "info": "t:settings_schema.colors.settings.colors_badge_new.info"
       }
     ]
   },

@@ -165,6 +165,18 @@
         },
         "gradient_background_2": {
           "label": "Background 2 gradient"
+        },
+        "colors_badge_bestseller": {
+          "label": "Bestseller badge",
+          "info": "Select the color for Bestseller product badge"
+        },
+        "colors_badge_sale": {
+          "label": "Sale badge",
+          "info": "Select the color for Sale product badge"
+        },
+        "colors_badge_new": {
+          "label": "New badge",
+          "info": "Select the color for New product badge"
         }
       }
     },
@@ -762,6 +774,9 @@
         "show_rating": {
           "label": "Show product rating",
           "info": "To display a rating, add a product rating app. [Learn more](https:\/\/help.shopify.com\/manual\/online-store\/themes\/theme-structure\/theme-features#featured-collection-show-product-rating)"
+        },
+        "show_badge": {
+          "label": "Show badge"
         },
         "enable_quick_buy": {
           "label": "Enable quick add button",

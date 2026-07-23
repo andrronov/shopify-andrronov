@@ -66,21 +66,85 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "automated-collection",
-        "products_to_show": 10,
+        "collection": "super-automatic-coffee-machines",
+        "products_to_show": 11,
         "columns_desktop": 3,
         "full_width": false,
-        "show_view_all": false,
+        "show_view_all": true,
         "view_all_style": "solid",
         "enable_desktop_slider": true,
         "color_scheme": "background-1",
         "image_ratio": "portrait",
         "show_secondary_image": true,
-        "show_vendor": false,
+        "show_vendor": true,
         "show_rating": false,
         "enable_quick_add": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_BMf647": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_dgLWgW": {
+          "type": "column",
+          "settings": {
+            "title": "Extensive selection of professional equipment",
+            "text": "<p>В нашем каталоге представлено современное оборудование от ведущих мировых брендов. Поможем подобрать идеальный вариант под ваш бюджет и специфику бизнеса.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_yTGzXj": {
+          "type": "column",
+          "settings": {
+            "title": "Any scale: from home to hotel",
+            "text": "<p>We select equipment for any task. Our portfolio includes solutions for private interiors, cozy offices and large restaurant chains.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_M8dmzr": {
+          "type": "column",
+          "settings": {
+            "title": "Expert service and repairs",
+            "text": "<p>We don’t just rent, we provide full technical support. We know the internal structure of each machine down to the smallest screw.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_G3VLgW": {
+          "type": "column",
+          "settings": {
+            "title": "Freshly roasted every day",
+            "text": "<p>We supply only high-quality grain, which perfectly reveals the taste in professional machines. We control quality at every stage.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_dgLWgW",
+        "column_yTGzXj",
+        "column_M8dmzr",
+        "column_G3VLgW"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Why us?",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Get a coffee machine",
+        "button_link": "shopify://collections/all",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -91,22 +155,22 @@
         "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-0": {
           "type": "heading",
           "settings": {
-            "heading": "Stay hydrated",
-            "heading_size": "h1"
+            "heading": "We will install the coffee machine and customize your ideal taste in 24 hours",
+            "heading_size": "h2"
           }
         },
         "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Try our wax subscription so you can fly high, but never dry.</p>",
+            "text": "<p>Receive an individual offer and rental cost estimate</p>",
             "text_style": "body"
           }
         },
         "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-2": {
           "type": "button",
           "settings": {
-            "button_label": "Get waxy now",
-            "button_link": "shopify://products/selling-plans-ski-wax"
+            "button_label": "Check it out",
+            "button_link": "shopify://collections/all"
           }
         }
       },
@@ -116,12 +180,13 @@
         "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-2"
       ],
       "settings": {
-        "image": "shopify://shop_images/theme_cover_image.jpg",
+        "image": "shopify://shop_images/delivery-bg.jpg",
+        "border_radius": "12",
         "height": "adapt",
-        "desktop_image_width": "medium",
+        "desktop_image_width": "large",
         "layout": "image_first",
         "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
+        "desktop_content_alignment": "right",
         "content_layout": "no-overlap",
         "color_scheme": "accent-1",
         "image_behavior": "none",
@@ -167,6 +232,7 @@
   "order": [
     "6a3bb789-ce10-45f5-ae67-e2063ef8c76b",
     "featured_collection",
+    "multicolumn_BMf647",
     "f1552b18-6017-4231-810d-74e61da22c37",
     "38cdf60f-e431-43b5-aac3-7e6215447d67"
   ]

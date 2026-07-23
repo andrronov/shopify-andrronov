@@ -81,6 +81,7 @@
               show_secondary_image: section.settings.show_secondary_image,
               show_vendor: section.settings.show_vendor,
               show_rating: section.settings.show_rating,
+              show_badge: section.settings.show_badge,
               show_quick_add: section.settings.enable_quick_add,
               section_id: section.id
             %}
@@ -335,6 +336,12 @@
       "default": false,
       "label": "t:sections.featured-collection.settings.show_rating.label",
       "info": "t:sections.featured-collection.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "default": true,
+      "label": "t:sections.featured-collection.settings.show_badge.label"
     },
     {
       "type": "checkbox",

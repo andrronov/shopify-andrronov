@@ -1,0 +1,19 @@
+{% comment %}
+  Renders a badge for a product
+
+  Usage:
+  {% render 'product-badge', product: product %}
+
+  Accepts:
+  - product: {Object}
+{% endcomment %}
+
+{{ 'product-badge.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign badge = product.metafields.custom.badge
+-%}
+
+{%- if product and badge -%}
+  <span class="product-badge badge-{{ badge }}">{{ badge }}</span>
+{%- endif -%}
