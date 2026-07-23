@@ -9,7 +9,9 @@
  */
 {
   "current": {
+    "logo": "shopify://shop_images/ufo.svg",
     "logo_width": 50,
+    "favicon": "shopify://shop_images/ufo.svg",
     "colors_solid_button_labels": "#ffffff",
     "colors_accent_1": "#621A1A",
     "gradient_accent_1": "",
