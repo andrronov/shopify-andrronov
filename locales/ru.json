@@ -116,6 +116,11 @@
     "collection_title": "Название коллекции"
   },
   "products": {
+    "badge": {
+      "bestseller": "Хит продаж",
+      "sale": "Распродажа",
+      "new": "Новинка"
+    },
     "product": {
       "add_to_cart": "Добавить в корзину",
       "description": "Описание",

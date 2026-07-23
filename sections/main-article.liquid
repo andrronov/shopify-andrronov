@@ -1,6 +1,10 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
-<article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
+<article
+  class="article-template"
+  itemscope
+  itemtype="http://schema.org/BlogPosting"
+>
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
@@ -9,7 +13,10 @@
         </div>
       {%- when 'featured_image' -%}
         {%- if article.image -%}
-          <div class="article-template__hero-container" {{ block.shopify_attributes }}>
+          <div
+            class="article-template__hero-container"
+            {{ block.shopify_attributes }}
+          >
             <div
               class="article-template__hero-{{ block.settings.image_height }} media"
               itemprop="image"
@@ -40,15 +47,28 @@
         {%- endif -%}
 
       {%- when 'title' -%}
-        <header class="page-width page-width--narrow" {{ block.shopify_attributes }}>
-          <h1 class="article-template__title" itemprop="headline">{{ article.title | escape }}</h1>
+        <header
+          class="page-width page-width--narrow"
+          {{ block.shopify_attributes }}
+        >
+          <h1 class="article-template__title" itemprop="headline">
+            {{ article.title | escape }}
+          </h1>
           {%- if block.settings.blog_show_date -%}
-            <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">
+            <span
+              class="circle-divider caption-with-letter-spacing"
+              itemprop="dateCreated pubdate datePublished"
+            >
               {{- article.published_at | time_tag: format: 'date' -}}
             </span>
           {%- endif -%}
           {%- if block.settings.blog_show_author -%}
-            <span class="caption-with-letter-spacing" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span
+              class="caption-with-letter-spacing"
+              itemprop="author"
+              itemscope
+              itemtype="http://schema.org/Person"
+            >
               <span itemprop="name">{{ article.author }}</span>
             </span>
           {%- endif -%}
@@ -64,7 +84,10 @@
         </div>
 
       {%- when 'share' -%}
-        <div class="article-template__social-sharing page-width page-width--narrow" {{ block.shopify_attributes }}>
+        <div
+          class="article-template__social-sharing page-width page-width--narrow"
+          {{ block.shopify_attributes }}
+        >
           {% assign share_url = request.origin | append: article.url %}
           {% render 'share-button', block: block, share_link: share_url %}
         </div>
@@ -89,19 +112,28 @@
           {% paginate article.comments by 5 %}
             <div class="article-template__comments">
               {%- if comment.status == 'pending' and comment.content -%}
-                <article id="{{ comment.id }}" class="article-template__comments-comment">
+                <article
+                  id="{{ comment.id }}"
+                  class="article-template__comments-comment"
+                >
                   {{ comment.content }}
                   <footer class="right">
-                    <span class="circle-divider caption-with-letter-spacing">{{ comment.author }}</span>
+                    <span class="circle-divider caption-with-letter-spacing">
+                      {{- comment.author -}}
+                    </span>
                   </footer>
                 </article>
               {%- endif -%}
 
               {%- for comment in article.comments -%}
-                <article id="{{ comment.id }}" class="article-template__comments-comment">
+                <article
+                  id="{{ comment.id }}"
+                  class="article-template__comments-comment"
+                >
                   {{ comment.content }}
                   <footer class="right">
-                    <span class="circle-divider caption-with-letter-spacing">{{ comment.author }}</span
+                    <span class="circle-divider caption-with-letter-spacing">
+                      {{- comment.author -}}</span
                     ><span class="caption-with-letter-spacing">
                       {{- comment.created_at | time_tag: format: 'date' -}}
                     </span>
@@ -122,7 +154,11 @@
           <h2>{{ 'blogs.article.comment_form_title' | t }}</h2>
           {%- if form.errors -%}
             <div class="form__message" role="alert">
-              <h3 class="form-status caption-large text-body" tabindex="-1" autofocus>
+              <h3
+                class="form-status caption-large text-body"
+                tabindex="-1"
+                autofocus
+              >
                 {% render 'icon-error' %}
                 {{ 'templates.contact.form.error_heading' | t }}
               </h3>
@@ -131,9 +167,13 @@
               {%- for field in form.errors -%}
                 <li>
                   <a href="#CommentForm-{{ field }}" class="link">
-                    {%- if form.errors.translated_fields[field] contains 'author' -%}
+                    {%- if form.errors.translated_fields[field]
+                        contains 'author'
+                    -%}
                       {{ 'blogs.article.name' | t }}
-                    {%- elsif form.errors.translated_fields[field] contains 'body' -%}
+                    {%- elsif form.errors.translated_fields[field]
+                        contains 'body'
+                    -%}
                       {{ 'blogs.article.message' | t }}
                     {%- else -%}
                       {{ form.errors.translated_fields[field] }}
@@ -251,9 +291,15 @@
             {%- endif -%}
           </div>
           {%- if blog.moderated? -%}
-            <p class="article-template__comment-warning caption">{{ 'blogs.article.moderated' | t }}</p>
+            <p class="article-template__comment-warning caption">
+              {{ 'blogs.article.moderated' | t }}
+            </p>
           {%- endif -%}
-          <input type="submit" class="button" value="{{ 'blogs.article.post' | t }}">
+          <input
+            type="submit"
+            class="button"
+            value="{{ 'blogs.article.post' | t }}"
+          >
         {% endform %}
       </div>
     </div>

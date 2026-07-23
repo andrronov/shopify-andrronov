@@ -3,7 +3,11 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 
-<div class="page-width{% if cart == empty %} is-empty{% endif %}" id="main-cart-footer" data-id="{{ section.id }}">
+<div
+  class="page-width{% if cart == empty %} is-empty{% endif %}"
+  id="main-cart-footer"
+  data-id="{{ section.id }}"
+>
   <div>
     <div class="cart__footer">
       {%- if settings.show_cart_note -%}
@@ -27,13 +31,21 @@
             {%- when 'subtotal' -%}
               <div class="js-contents" {{ block.shopify_attributes }}>
                 <div class="totals">
-                  <h2 class="totals__subtotal">{{ 'sections.cart.subtotal' | t }}</h2>
-                  <p class="totals__subtotal-value">{{ cart.total_price | money_with_currency }}</p>
+                  <h2 class="totals__subtotal">
+                    {{ 'sections.cart.subtotal' | t }}
+                  </h2>
+                  <p class="totals__subtotal-value">
+                    {{ cart.total_price | money_with_currency }}
+                  </p>
                 </div>
 
                 <div>
                   {%- if cart.cart_level_discount_applications.size > 0 -%}
-                    <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                    <ul
+                      class="discounts list-unstyled"
+                      role="list"
+                      aria-label="{{ 'customer.order.discount' | t }}"
+                    >
                       {%- for discount in cart.cart_level_discount_applications -%}
                         <li class="discounts__discount discounts__discount--position">
                           {%- render 'icon-discount' -%}
@@ -46,12 +58,23 @@
                 </div>
 
                 <small class="tax-note caption-large rte">
-                  {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
-                    {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                  {%- if cart.taxes_included
+                    and shop.shipping_policy.body != blank
+                  -%}
+                    {{
+                      'sections.cart.taxes_included_and_shipping_policy_html'
+                      | t: link: shop.shipping_policy.url
+                    }}
                   {%- elsif cart.taxes_included -%}
-                    {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
+                    {{
+                      'sections.cart.taxes_included_but_shipping_at_checkout'
+                      | t
+                    }}
                   {%- elsif shop.shipping_policy.body != blank -%}
-                    {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+                    {{
+                      'sections.cart.taxes_and_shipping_policy_at_checkout_html'
+                      | t: link: shop.shipping_policy.url
+                    }}
                   {%- else -%}
                     {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
                   {%- endif -%}
@@ -60,7 +83,11 @@
             {%- else -%}
               <div class="cart__ctas" {{ block.shopify_attributes }}>
                 <noscript>
-                  <button type="submit" class="cart__update-button button button--secondary" form="cart">
+                  <button
+                    type="submit"
+                    class="cart__update-button button button--secondary"
+                    form="cart"
+                  >
                     {{ 'sections.cart.update' | t }}
                   </button>
                 </noscript>
@@ -108,9 +135,11 @@
     cartSubmitInput.setAttribute('name', 'checkout');
     cartSubmitInput.setAttribute('type', 'hidden');
     document.querySelector('#cart').appendChild(cartSubmitInput);
-    document.querySelector('#checkout').addEventListener('click', function (event) {
-      document.querySelector('#cart').submit();
-    });
+    document
+      .querySelector('#checkout')
+      .addEventListener('click', function (event) {
+        document.querySelector('#cart').submit();
+      });
   });
 </script>
 

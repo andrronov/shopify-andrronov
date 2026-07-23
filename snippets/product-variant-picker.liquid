@@ -24,7 +24,11 @@
       {%- for option in product.options_with_values -%}
         <fieldset class="js product-form__input">
           <legend class="form__label">{{ option.name }}</legend>
-          {% render 'product-variant-options', product: product, option: option, block: block %}
+          {% render 'product-variant-options',
+            product: product,
+            option: option,
+            block: block
+          %}
         </fieldset>
       {%- endfor -%}
       <script type="application/json">
@@ -44,7 +48,10 @@
     >
       {%- for option in product.options_with_values -%}
         <div class="product-form__input product-form__input--dropdown">
-          <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+          <label
+            class="form__label"
+            for="Option-{{ section.id }}-{{ forloop.index0 }}"
+          >
             {{ option.name }}
           </label>
           <div class="select">
@@ -54,7 +61,11 @@
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
             >
-              {% render 'product-variant-options', product: product, option: option, block: block %}
+              {% render 'product-variant-options',
+                product: product,
+                option: option,
+                block: block
+              %}
             </select>
             {% render 'icon-caret' %}
           </div>

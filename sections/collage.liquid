@@ -20,7 +20,9 @@
 
 <div class="color-{{ section.settings.color_scheme }} gradient isolate">
   <div class="page-width{% if section.settings.heading == blank %} no-heading{% endif %} section-{{ section.id }}-padding">
-    <h2 class="collage-wrapper-title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+    <h2 class="collage-wrapper-title inline-richtext {{ section.settings.heading_size }}">
+      {{ section.settings.heading }}
+    </h2>
     <div class="collage{% if section.settings.mobile_layout == 'collage' %} collage--mobile{% endif %}">
       {%- for block in section.blocks -%}
         <div
@@ -43,10 +45,16 @@
                     {{
                       block.settings.image
                       | image_url: width: 3000
-                      | image_tag: loading: 'lazy', sizes: sizes, widths: '550, 720, 990, 1100, 1500, 2200, 3000'
+                      | image_tag:
+                        loading: 'lazy',
+                        sizes: sizes,
+                        widths: '550, 720, 990, 1100, 1500, 2200, 3000'
                     }}
                   {%- else -%}
-                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                    {{
+                      'image'
+                      | placeholder_svg_tag: 'placeholder-svg placeholder'
+                    }}
                   {%- endif -%}
                 </div>
               </div>
@@ -95,15 +103,24 @@
                         {{
                           block.settings.cover_image
                           | image_url: width: 3000
-                          | image_tag: loading: 'lazy', sizes: sizes, widths: '550, 720, 990, 1100, 1500, 2200, 3000'
+                          | image_tag:
+                            loading: 'lazy',
+                            sizes: sizes,
+                            widths: '550, 720, 990, 1100, 1500, 2200, 3000'
                         }}
                       {%- else -%}
-                        {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                        {{
+                          'collection-2'
+                          | placeholder_svg_tag: 'placeholder-svg placeholder'
+                        }}
                       {%- endif -%}
                     </div>
                   </a>
                 </noscript>
-                <modal-opener class="no-js-hidden" data-modal="#PopupModal-{{ block.id }}">
+                <modal-opener
+                  class="no-js-hidden"
+                  data-modal="#PopupModal-{{ block.id }}"
+                >
                   <div class="deferred-media">
                     <button
                       class="deferred-media__poster full-unstyled-link"
@@ -139,16 +156,25 @@
                           {{
                             block.settings.cover_image
                             | image_url: width: 3000
-                            | image_tag: loading: 'lazy', sizes: sizes, widths: '550, 720, 990, 1100, 1500, 2200, 3000'
+                            | image_tag:
+                              loading: 'lazy',
+                              sizes: sizes,
+                              widths: '550, 720, 990, 1100, 1500, 2200, 3000'
                           }}
                         {%- else -%}
-                          {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                          {{
+                            'collection-2'
+                            | placeholder_svg_tag: 'placeholder-svg placeholder'
+                          }}
                         {%- endif -%}
                       </div>
                     </button>
                   </div>
                 </modal-opener>
-                <modal-dialog id="PopupModal-{{ block.id }}" class="modal-video media-modal color-background-1">
+                <modal-dialog
+                  id="PopupModal-{{ block.id }}"
+                  class="modal-video media-modal color-background-1"
+                >
                   <div
                     class="modal-video__content"
                     role="dialog"

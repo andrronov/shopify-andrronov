@@ -4,7 +4,9 @@
 {{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
-{%- if section.settings.enable_country_selector or section.settings.enable_language_selector -%}
+{%- if section.settings.enable_country_selector
+  or section.settings.enable_language_selector
+-%}
   {{ 'component-localization-form.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
@@ -69,7 +71,9 @@
                 {{ block.shopify_attributes }}
               >
                 {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                  <h2 class="footer-block__heading inline-richtext">
+                    {{- block.settings.heading -}}
+                  </h2>
                 {%- endif -%}
 
                 {%- case block.type -%}
@@ -116,7 +120,9 @@
                         </div>
                       {%- endif -%}
                       {%- if settings.brand_headline != blank -%}
-                        <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2>
+                        <h2 class="footer-block__heading rte">
+                          {{ settings.brand_headline }}
+                        </h2>
                       {%- endif -%}
                       {%- if settings.brand_description != blank -%}
                         <div class="rte">{{ settings.brand_description }}</div>
@@ -128,7 +134,10 @@
                   {%- when 'image' -%}
                     <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
                       {%- if block.settings.image != blank -%}
-                        {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
+                        {%- assign image_size_2x = block.settings.image_width
+                          | times: 2
+                          | at_most: 5760
+                        -%}
                         <div
                           class="footer-block__image-wrapper global-media-settings"
                           style="max-width: min(100%, {{ block.settings.image_width }}px);"
@@ -143,7 +152,10 @@
                           >
                         </div>
                       {%- else -%}
-                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                        {{
+                          'image'
+                          | placeholder_svg_tag: 'placeholder-svg placeholder'
+                        }}
                       {%- endif -%}
                     </div>
                 {%- endcase -%}
@@ -156,9 +168,14 @@
           {%- if section.settings.newsletter_enable -%}
             <div class="footer-block__newsletter">
               {%- if section.settings.newsletter_heading != blank -%}
-                <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
+                <h2 class="footer-block__heading inline-richtext">
+                  {{ section.settings.newsletter_heading }}
+                </h2>
               {%- endif -%}
-              {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+              {%- form 'customer',
+                id: 'ContactFooter',
+                class: 'footer__newsletter newsletter-form'
+              -%}
                 <input type="hidden" name="contact[tags]" value="newsletter">
                 <div class="newsletter-form__field-wrapper">
                   <div class="field">
@@ -182,7 +199,10 @@
                       placeholder="{{ 'newsletter.label' | t }}"
                       required
                     >
-                    <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                    <label
+                      class="field__label"
+                      for="NewsletterForm--{{ section.id }}"
+                    >
                       {{ 'newsletter.label' | t }}
                     </label>
                     <button
@@ -196,7 +216,10 @@
                     </button>
                   </div>
                   {%- if form.errors -%}
-                    <small class="newsletter-form__message form__message" id="ContactFooter-error">
+                    <small
+                      class="newsletter-form__message form__message"
+                      id="ContactFooter-error"
+                    >
                       {%- render 'icon-error' -%}
                       {{- form.errors.translated_fields.email | capitalize }}
                       {{ form.errors.messages.email -}}
@@ -217,8 +240,10 @@
               {%- endform -%}
             </div>
           {%- endif -%}
-          
-          {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
+
+          {%- if shop.features.follow_on_shop?
+            and section.settings.enable_follow_on_shop
+          -%}
             <div class="footer__follow-on-shop">
               {% comment %} TODO: enable theme-check once `login_button` is accepted as valid filter {% endcomment %}
               {% # theme-check-disable %}
@@ -238,11 +263,18 @@
   <div class="footer__content-bottom">
     <div class="footer__content-bottom-wrapper page-width">
       <div class="footer__column footer__localization isolate">
-        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+        {%- if section.settings.enable_country_selector
+          and localization.available_countries.size > 1
+        -%}
           <noscript>
-            {%- form 'localization', id: 'FooterCountryFormNoScript', class: 'localization-form' -%}
+            {%- form 'localization',
+              id: 'FooterCountryFormNoScript',
+              class: 'localization-form'
+            -%}
               <div class="localization-form__select">
-                <h2 class="visually-hidden" id="FooterCountryLabelNoScript">{{ 'localization.country_label' | t }}</h2>
+                <h2 class="visually-hidden" id="FooterCountryLabelNoScript">
+                  {{ 'localization.country_label' | t }}
+                </h2>
                 <select
                   class="localization-selector link"
                   name="country_code"
@@ -251,7 +283,8 @@
                   {%- for country in localization.available_countries -%}
                     <option
                       value="{{ country.iso_code }}"
-                      {%- if country.iso_code == localization.country.iso_code %}
+                      {%- if country.iso_code == localization.country.iso_code
+                      %}
                         selected
                       {% endif %}
                     >
@@ -262,22 +295,36 @@
                 </select>
                 {% render 'icon-caret' %}
               </div>
-              <button class="button button--tertiary">{{ 'localization.update_country' | t }}</button>
+              <button class="button button--tertiary">
+                {{ 'localization.update_country' | t }}
+              </button>
             {%- endform -%}
           </noscript>
           <localization-form>
-            {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
+            {%- form 'localization',
+              id: 'FooterCountryForm',
+              class: 'localization-form'
+            -%}
               <div class="no-js-hidden">
-                <h2 class="caption-large text-body" id="FooterCountryLabel">{{ 'localization.country_label' | t }}</h2>
-                {%- render 'country-localization', localPosition: 'FooterCountry' -%}
+                <h2 class="caption-large text-body" id="FooterCountryLabel">
+                  {{ 'localization.country_label' | t }}
+                </h2>
+                {%- render 'country-localization',
+                  localPosition: 'FooterCountry'
+                -%}
               </div>
             {%- endform -%}
           </localization-form>
         {%- endif -%}
 
-        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+        {%- if section.settings.enable_language_selector
+          and localization.available_languages.size > 1
+        -%}
           <noscript>
-            {%- form 'localization', id: 'FooterLanguageFormNoScript', class: 'localization-form' -%}
+            {%- form 'localization',
+              id: 'FooterLanguageFormNoScript',
+              class: 'localization-form'
+            -%}
               <div class="localization-form__select">
                 <h2 class="visually-hidden" id="FooterLanguageLabelNoScript">
                   {{ 'localization.language_label' | t }}
@@ -291,7 +338,8 @@
                     <option
                       value="{{ language.iso_code }}"
                       lang="{{ language.iso_code }}"
-                      {%- if language.iso_code == localization.language.iso_code %}
+                      {%- if language.iso_code == localization.language.iso_code
+                      %}
                         selected
                       {% endif %}
                     >
@@ -301,17 +349,24 @@
                 </select>
                 {% render 'icon-caret' %}
               </div>
-              <button class="button button--tertiary">{{ 'localization.update_language' | t }}</button>
+              <button class="button button--tertiary">
+                {{ 'localization.update_language' | t }}
+              </button>
             {%- endform -%}
           </noscript>
 
           <localization-form>
-            {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
+            {%- form 'localization',
+              id: 'FooterLanguageForm',
+              class: 'localization-form'
+            -%}
               <div class="no-js-hidden">
                 <h2 class="caption-large text-body" id="FooterLanguageLabel">
                   {{ 'localization.language_label' | t }}
                 </h2>
-                {%- render 'language-localization', localPosition: 'FooterLanguage' -%}
+                {%- render 'language-localization',
+                  localPosition: 'FooterLanguage'
+                -%}
               </div>
             {%- endform -%}
           </localization-form>
@@ -320,11 +375,16 @@
       <div class="footer__column footer__column--info">
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment">
-            <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+            <span class="visually-hidden">
+              {{- 'sections.footer.payment' | t -}}
+            </span>
             <ul class="list list-payment" role="list">
               {%- for type in shop.enabled_payment_types -%}
                 <li class="list-payment__item">
-                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                  {{
+                    type
+                    | payment_type_svg_tag: class: 'icon icon--full-color'
+                  }}
                 </li>
               {%- endfor -%}
             </ul>
@@ -335,7 +395,8 @@
     <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
       <div class="footer__copyright caption">
         <small class="copyright__content"
-          >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
+          >&copy; {{ 'now' | date: '%Y' }},
+          {{ shop.name | link_to: routes.root_url -}}
         </small>
         <small class="copyright__content">{{ powered_by_link }}</small>
         {%- if section.settings.show_policy -%}
@@ -356,7 +417,9 @@
   </div>
 </footer>
 
-{%- if section.settings.enable_country_selector or section.settings.enable_language_selector -%}
+{%- if section.settings.enable_country_selector
+  or section.settings.enable_language_selector
+-%}
   <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 

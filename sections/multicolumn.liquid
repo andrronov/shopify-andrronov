@@ -31,7 +31,10 @@
           {{ section.settings.title }}
         </h2>
         {%- if section.settings.button_label != blank and show_mobile_slider -%}
-          <a href="{{ section.settings.button_link }}" class="link underlined-link large-up-hide">
+          <a
+            href="{{ section.settings.button_link }}"
+            class="link underlined-link large-up-hide"
+          >
             {{- section.settings.button_label | escape -}}
           </a>
         {%- endif -%}
@@ -68,7 +71,9 @@
           >
             <div class="multicolumn-card content-container">
               {%- if block.settings.image != blank -%}
-                {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
+                {% if section.settings.image_ratio == 'adapt'
+                  or section.settings.image_ratio == 'circle'
+                %}
                   {% assign spaced_image = true %}
                 {% endif %}
                 <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %}">
@@ -127,7 +132,9 @@
                     {% endif %}
                   >
                     {{- block.settings.link_label | escape -}}
-                    <span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}</span></a
+                    <span class="icon-wrap"
+                      >&nbsp;{% render 'icon-arrow' -%}
+                    </span></a
                   >
                 {%- endif -%}
               </div>

@@ -12,7 +12,11 @@
 {% endcomment %}
 <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
 
-<share-button id="Share-{{ section.id }}" class="share-button quick-add-hidden" {{ block.shopify_attributes }}>
+<share-button
+  id="Share-{{ section.id }}"
+  class="share-button quick-add-hidden"
+  {{ block.shopify_attributes }}
+>
   <button class="share-button__button hidden">
     {% render 'icon-share' %}
     {{ block.settings.share_label | escape }}
@@ -24,7 +28,12 @@
     </summary>
     <div class="share-button__fallback motion-reduce">
       <div class="field">
-        <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status"> </span>
+        <span
+          id="ShareMessage-{{ section.id }}"
+          class="share-button__message hidden"
+          role="status"
+        >
+        </span>
         <input
           type="text"
           class="field__input"
@@ -34,7 +43,9 @@
           onclick="this.select();"
           readonly
         >
-        <label class="field__label" for="ShareUrl-{{ section.id }}">{{ 'general.share.share_url' | t }}</label>
+        <label class="field__label" for="ShareUrl-{{ section.id }}">
+          {{- 'general.share.share_url' | t -}}
+        </label>
       </div>
       <button class="share-button__close hidden no-js-hidden">
         {% render 'icon-close' %}
@@ -42,7 +53,9 @@
       </button>
       <button class="share-button__copy no-js-hidden">
         {% render 'icon-clipboard' %}
-        <span class="visually-hidden">{{ 'general.share.copy_to_clipboard' | t }}</span>
+        <span class="visually-hidden">
+          {{- 'general.share.copy_to_clipboard' | t -}}
+        </span>
       </button>
     </div>
   </details>

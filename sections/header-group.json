@@ -24,16 +24,12 @@
           }
         }
       },
-      "block_order": [
-        "announcement_HCHi4x"
-      ],
+      "block_order": ["announcement_HCHi4x"],
       "settings": {}
     },
     "header": {
       "type": "header",
-      "custom_css": [
-        ".header__heading-link .h2 {font-size: 16px;}"
-      ],
+      "custom_css": [".header__heading-link .h2 {font-size: 16px;}"],
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
@@ -50,8 +46,5 @@
       }
     }
   },
-  "order": [
-    "announcement-bar",
-    "header"
-  ]
+  "order": ["announcement-bar", "header"]
 }

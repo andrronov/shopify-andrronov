@@ -53,7 +53,9 @@
           <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
             <div
               class="image-with-text__media image-with-text__media--{{ section.settings.image_height }} gradient color-{{ section.settings.row_color_scheme }} global-media-settings{% if block.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}"
-              {% if section.settings.image_height == 'adapt' and block.settings.image != blank %}
+              {% if section.settings.image_height == 'adapt'
+                and block.settings.image != blank
+              %}
                 style="padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;"
               {% endif %}
             >
@@ -65,7 +67,10 @@
                 {{
                   block.settings.image
                   | image_url: width: 1500
-                  | image_tag: loading: 'lazy', sizes: sizes, widths: '165, 360, 535, 750, 1070, 1500'
+                  | image_tag:
+                    loading: 'lazy',
+                    sizes: sizes,
+                    widths: '165, 360, 535, 750, 1070, 1500'
                 }}
               {%- else -%}
                 {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -85,7 +90,9 @@
                 </h2>
               {%- endif -%}
               {%- if block.settings.text -%}
-                <div class="image-with-text__text rte {{ section.settings.text_style }}">{{ block.settings.text }}</div>
+                <div class="image-with-text__text rte {{ section.settings.text_style }}">
+                  {{ block.settings.text }}
+                </div>
               {%- endif -%}
               {%- if block.settings.button_label != blank -%}
                 <a

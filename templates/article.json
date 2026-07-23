@@ -30,15 +30,9 @@
           "settings": {}
         }
       },
-      "block_order": [
-        "featured_image",
-        "title",
-        "content"
-      ],
+      "block_order": ["featured_image", "title", "content"],
       "settings": {}
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main"]
 }

@@ -56,7 +56,9 @@
     >
       <h2 class="form__message" tabindex="-1" autofocus>
         {% render 'icon-error' %}
-        <span class="error-message">{{ 'templates.contact.form.error_heading' | t }}</span>
+        <span class="error-message">
+          {{- 'templates.contact.form.error_heading' | t -}}
+        </span>
       </h2>
 
       <ul>
@@ -93,8 +95,12 @@
             {% endif %}
           >
           <label class="field__label" for="Recipient-email-{{ section.id }}">
-            <span class="recipient-email-label required">{{ 'recipient.form.email_label' | t }}</span>
-            <span class="recipient-email-label optional">{{ 'recipient.form.email_label_optional' | t }}</span>
+            <span class="recipient-email-label required">
+              {{- 'recipient.form.email_label' | t -}}
+            </span>
+            <span class="recipient-email-label optional">
+              {{- 'recipient.form.email_label_optional' | t -}}
+            </span>
           </label>
         </div>
 
@@ -148,8 +154,12 @@
 
       <div class="recipient-fields__field">
         {%- assign max_chars_message = 200 -%}
-        {%- assign max_chars_message_rendered = 'recipient.form.max_characters' | t: max_chars: max_chars_message -%}
-        {%- assign message_label_rendered = 'recipient.form.message_label' | t -%}
+        {%- assign max_chars_message_rendered = 'recipient.form.max_characters'
+          | t: max_chars: max_chars_message
+        -%}
+        {%- assign message_label_rendered = 'recipient.form.message_label'
+          | t
+        -%}
         <div class="field">
           <textarea
             rows="10"
@@ -164,7 +174,10 @@
               aria-describedby="RecipientForm-message-error-{{ section.id }}"
             {% endif %}
           >{{ form.message }}</textarea>
-          <label class="form__label field__label" for="Recipient-message-{{ section.id }}">
+          <label
+            class="form__label field__label"
+            for="Recipient-message-{{ section.id }}"
+          >
             {{ message_label_rendered }}
           </label>
         </div>

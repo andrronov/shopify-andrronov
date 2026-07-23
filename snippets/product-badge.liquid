@@ -15,5 +15,7 @@
 -%}
 
 {%- if product and badge -%}
-  <span class="product-badge badge-{{ badge }}">{{ badge }}</span>
+  <span class="product-badge badge-{{ badge }}">
+    {{ 'products.badge.' | append: badge | t }}
+  </span>
 {%- endif -%}
