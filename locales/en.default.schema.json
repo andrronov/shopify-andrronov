@@ -429,6 +429,9 @@
         "inverse": {
           "label": "Inverse"
         },
+        "transparent": {
+          "label": "Transparent"
+        },
         "label": "Color scheme",
         "has_cards_info": "To change the card color scheme, update your theme settings."
       },
