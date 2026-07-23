@@ -4,6 +4,10 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    {%- if section.settings.border_radius -%}
+        border-radius: {{ section.settings.border_radius }}px;
+        overflow: hidden;
+    {%- endif -%}
   }
 
   @media screen and (min-width: 750px) {
@@ -105,6 +109,30 @@
       "type": "image_picker",
       "id": "image",
       "label": "t:sections.image-with-text.settings.image.label"
+    },
+    {
+      "type": "select",
+      "id": "border_radius",
+      "options": [
+        {
+          "value": "0",
+          "label": "t:sections.image-with-text.settings.border_radius.options__1.label"
+        },
+        {
+          "value": "4",
+          "label": "t:sections.image-with-text.settings.border_radius.options__2.label"
+        },
+        {
+          "value": "8",
+          "label": "t:sections.image-with-text.settings.border_radius.options__3.label"
+        },
+        {
+          "value": "12",
+          "label": "t:sections.image-with-text.settings.border_radius.options__4.label"
+        }
+      ],
+      "default": "0",
+      "label": "t:sections.image-with-text.settings.border_radius.label"
     },
     {
       "type": "select",

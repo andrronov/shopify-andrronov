@@ -1289,6 +1289,21 @@
         "image": {
           "label": "Image"
         },
+        "border_radius": {
+          "label": "Border radius",
+          "options__1": {
+            "label": "0"
+          },
+          "options__2": {
+            "label": "4"
+          },
+          "options__3": {
+            "label": "8"
+          },
+          "options__4": {
+            "label": "12"
+          }
+        },
         "height": {
           "options__1": {
             "label": "Adapt to image"
